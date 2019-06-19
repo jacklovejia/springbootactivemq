@@ -13,6 +13,11 @@ public class Consumer {
         System.out.println("收到消息" + msg);
     }
 
+    @JmsListener(destination = "jack",containerFactory = "queueListenerFactory")
+    public void test(String msg) {
+        System.out.println("收到消息" + msg);
+    }
+
     @JmsListener(destination = "notify", containerFactory = "topicListenerFactory")
     public void test02(String msg) {
         System.out.println("收到消息" + msg);

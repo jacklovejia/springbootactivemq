@@ -1,14 +1,11 @@
 package com.jack.springbootactivemq.controller;
 
 import com.jack.springbootactivemq.utils.MsgMode;
-import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.jms.Destination;
 
 
 @RestController
