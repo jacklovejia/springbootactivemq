@@ -14,12 +14,16 @@ public class ProducerController {
     @Autowired
     private JmsMessagingTemplate jmsMessagingTemplate;
 
-    @RequestMapping("/test01/{msg}")
-    public String test01(@PathVariable String msg) {
-        String queueName = "order";
-        jmsMessagingTemplate.convertAndSend(MsgMode.getActiveMqQueue(queueName), msg);
+    @RequestMapping("/test01")
+    public String test01() {
+        for (int i = 0; i < 100; i++) {
+            String msg = "订单号:"+i;
+            String queueName = "order";
+            jmsMessagingTemplate.convertAndSend(MsgMode.getActiveMqQueue(queueName), msg);
+        }
         return "消息已发送";
     }
+
     @RequestMapping("/test02/{msg}")
     public String test02(@PathVariable String msg) {
         String topName = "notify";
